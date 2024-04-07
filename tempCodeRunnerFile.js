@@ -1,1 +1,1 @@
-console.log(dispatch({type:'add_todo', payload:{todoText:'text 1'}}));
+action object => action method (action creator)

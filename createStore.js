@@ -1,4 +1,4 @@
-import {createStore, bindActionCreaters } from "redux"
+import {createStore } from "redux"
 
 const ADD_TODO = 'add_todo'
 const UPT_TODO = 'edit_todo'
