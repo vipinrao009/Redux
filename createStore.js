@@ -1,4 +1,4 @@
-import {createStore } from "redux"
+import {createStore, bindActionCreators } from "redux"
 
 const ADD_TODO = 'add_todo'
 const UPT_TODO = 'edit_todo'
@@ -35,10 +35,12 @@ const deleteTodo = (id)=> ({type:DEL_TODO, payload:{todoId:id}})
 
 const {dispatch,subscribe,getState,replaceReducer} = createStore(todoReducer,[])
 
-subscribe(()=>{console.log(getState());})
+subscribe(()=>{console.log(getState());}) //when any changes in the state it ipdate and show latest all method
 
-dispatch(addTodo('todo 1'))
+const action = bindActionCreators({addTodo,deleteTodo},dispatch)
 
-dispatch(addTodo('todo 2'))
+action.addTodo('todo 1')
 
-dispatch(deleteTodo(1))
+action.addTodo('todo 2')
+
+action.deleteTodo(1)
