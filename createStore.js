@@ -1,4 +1,4 @@
-import {createStore } from "redux"
+import {createStore, bindActionCreaters } from "redux"
 
 const ADD_TODO = 'add_todo'
 const UPT_TODO = 'edit_todo'
@@ -29,14 +29,16 @@ function todoReducer(state,action){
 
 }
 
+//action object => action method (action creator)
+const addTodo = (todoText)=>({type:ADD_TODO, payload:{todoText:'text 1'}})
+const deleteTodo = (id)=> ({type:DEL_TODO, payload:{todoId:id}})
+
 const {dispatch,subscribe,getState,replaceReducer} = createStore(todoReducer,[])
 
 subscribe(()=>{console.log(getState());})
 
-dispatch({type:ADD_TODO, payload:{todoText:'text 1'}})
+dispatch(addTodo('todo 1'))
 
+dispatch(addTodo('todo 2'))
 
-dispatch({type:ADD_TODO, payload:{todoText:'text 2'}})
-
-
-dispatch({type:DEL_TODO, payload:{todoId:1}})
+dispatch(deleteTodo(1))
