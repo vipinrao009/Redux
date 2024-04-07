@@ -1,0 +1,1 @@
+console.log(dispatch({type:'add_todo', payload:{todoText:'text 1'}}));
